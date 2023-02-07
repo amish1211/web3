@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substitution Cipher</title>
+    <style>
+        body {
+            margin: 0;
+            width: 80%;
+            margin-inline: auto;
+
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+
+        button {
+
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <textarea name="input" id="input" cols="30" rows="10"></textarea>
+    <button>encode ==></button>
+    <textarea name="output" id="output" cols="30" rows="10"></textarea>
+
+
+    <script>
+        var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var inputTextArea = document.querySelector('#input');
+        var outputTextArea = document.querySelector('#output');
+        var encodeBtn = document.querySelector('button');
+        inputTextArea.value='';
+        outputTextArea.value='';
+
+        encodeBtn.addEventListener('click', function () {
+            var inputValue = inputTextArea.value.trim();
+            var outputValue = "";
+            for(let i = 0; i < inputValue.length; i++) {
+                if(alphabets.includes(inputValue[i])) {
+                    let reqIndex = alphabets.indexOf(inputValue[i]) >= 3?
+                                    alphabets.indexOf(inputValue[i])-3:
+                                    alphabets.indexOf(inputValue[i])+23;
+
+                    outputValue += alphabets[reqIndex];    
+                } else {
+                    alert('Please Enter Capital Alphabets Only');
+                    outputValue='';
+                    break;
+                }
+            }
+            outputTextArea.value = outputValue;
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapse and Expand</title>
+
+    <style>
+       .hidden {
+        display: none;
+       }
+    </style>
+
+</head>
+<body>
+   
+        
+        <ol>
+            <li>Information Security</li>
+            <li>Web Technology</li>
+            <li>Operating System</li>
+            <li>Theory of Computation</li>
+            <li>Software Engineering</li>
+        </ol>
+    
+    <button>Click to collapse</button>
+    <p>Pragraph following the list(doesn't collapse)</p>
+
+    <script>
+        var ol = document.querySelector('ol');
+        document.querySelector('button').addEventListener('click', function() {
+            
+            
+            if(ol.classList.contains('hidden')) {
+                ol.classList.remove('hidden');
+                document.querySelector('button').textContent='Click to collapse';
+            } else {
+                ol.classList.add('hidden');
+                document.querySelector('button').textContent='Click to expand';
+            }   
+
+            
+        });
+    </script>
+</body>
+</html>
